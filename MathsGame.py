@@ -1,5 +1,5 @@
 import random
-from Games import addition, subtraction, multiplication, division
+from Games import addition, subtraction, multiplication, division, mixture
 
 #Take and store the inital user selection input
 inputNumber = input("Select one of the following options:\n(1) Addition (2) Subtraction (3) Multiplication (4) Division (5) Random sums (6) Quit\n")
@@ -22,7 +22,7 @@ while (inputNumber != '6'):
 		division()
 	#MIXTURE
 	elif inputNumber == '5':
-		print("Five!")
+		mixture()
 	#INVALID INPUT
 	else:
 		print("\nThe provided input was not valid, please try again!\n")

@@ -13,7 +13,7 @@ def addition():
 		inputCheck = False
 		while(inputCheck == False):
 			try:
-				print("\nWhat is ", A, " + ", B, "?")
+				print("\nWhat is", A, "+", B, "?")
 				inputValue = int(input())
 				inputCheck = True
 			except ValueError:
@@ -65,7 +65,7 @@ def subtraction():
 		inputCheck = False
 		while(inputCheck == False):
 			try:
-				print("\nWhat is ", A, " - ", B, "?")
+				print("\nWhat is", A, "-", B, "?")
 				inputValue = int(input())
 				inputCheck = True
 			except ValueError:
@@ -112,7 +112,7 @@ def multiplication():
 		inputCheck = False
 		while(inputCheck == False):
 			try:
-				print("\nWhat is ", A, " x ", B, "?")
+				print("\nWhat is", A, "x", B, "?")
 				inputValue = int(input())
 				inputCheck = True
 			except ValueError:
@@ -164,7 +164,7 @@ def division():
 		inputCheck = False
 		while(inputCheck == False):
 			try:
-				print("\nWhat is ", A, " / ", B, "?")
+				print("\nWhat is", A, "/", B, "?")
 				inputValue = int(input())
 				inputCheck = True
 			except ValueError:
@@ -202,6 +202,7 @@ def mixture():
 	check = True
 	difficulty = 4
 	diffCheck = 0
+	map = {1 : "+", 2 : "-", 3 : "x", 4 : "/"}
 	while(check == True):
 		#Generate the question values at random between 1 & the difficulty level		
 		A = random.randint(1, difficulty)
@@ -218,7 +219,7 @@ def mixture():
 		inputCheck = False
 		while(inputCheck == False):
 			try:
-				print("\nWhat is ", A, " / ", B, "?")
+				print("\nWhat is", A, map[C], B, "?")
 				inputValue = int(input())
 				inputCheck = True
 			except ValueError:
