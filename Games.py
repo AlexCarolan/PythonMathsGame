@@ -4,6 +4,7 @@ def addition():
 	check = True
 	difficulty = 4
 	diffCheck = 0
+	score = 0
 	while(check == True): 
 		#Generate the question values at random between 1 & the difficulty level
 		A = random.randint(1, difficulty)
@@ -17,6 +18,7 @@ def addition():
 			if difficulty < 10:
 				diffCheck += 1
 			print("That is correct, well done!")
+			score += difficulty
 		else:
 			print("\nNot right, the correct answer is:", (A+B))
 			if difficulty < 4:
@@ -33,11 +35,13 @@ def addition():
 		
 		#Check if the user would like to continue
 		check = askExit()
+	return score
 						
 def subtraction():
 	check = True
 	difficulty = 4
 	diffCheck = 0
+	score = 0
 	while(check == True): 
 		#Generate the question values at random between 1 & the difficulty level
 		A = random.randint(1, difficulty)
@@ -56,6 +60,7 @@ def subtraction():
 			if difficulty < 10:
 				diffCheck += 1
 			print("That is correct, well done!")
+			score += difficulty
 		else:
 			print("\nNot right, the correct answer is:", (A-B))
 			if difficulty < 4:
@@ -72,11 +77,13 @@ def subtraction():
 		
 		#Check if the user would like to continue
 		check = askExit()
+	return score
 				
 def multiplication():
 	check = True
 	difficulty = 4
 	diffCheck = 0
+	score = 0
 	while(check == True):
 		#Generate the question values at random between 1 & the difficulty level		
 		A = random.randint(1, difficulty)
@@ -90,6 +97,7 @@ def multiplication():
 			if difficulty < 10:
 				diffCheck += 1
 			print("That is correct, well done!")
+			score += difficulty
 		else:
 			print("\nNot right, the correct answer is:", (A*B))
 			if difficulty < 4:
@@ -106,11 +114,13 @@ def multiplication():
 			
 		#Check if the user would like to continue
 		check = askExit()
+	return score
 				
 def division():
 	check = True
 	difficulty = 4
 	diffCheck = 0
+	score = 0
 	while(check == True): 
 		#Generate the question values at random between 1 & the difficulty level
 		A = random.randint(1, difficulty)
@@ -129,6 +139,7 @@ def division():
 			if difficulty < 10:
 				diffCheck += 1
 			print("That is correct, well done!")
+			score += difficulty
 		else:
 			print("\nNot right, the correct answer is:", (A/B))
 			if difficulty < 4:
@@ -145,11 +156,13 @@ def division():
 		
 		#Check if the user would like to continue
 		check = askExit()
+	return score
 				
 def mixture():
 	check = True
 	difficulty = 4
 	diffCheck = 0
+	score = 0
 	map = {1 : "+", 2 : "-", 3 : "x", 4 : "/"}
 	while(check == True):
 		#Generate the question values at random between 1 & the difficulty level		
@@ -173,6 +186,7 @@ def mixture():
 			if difficulty < 10:
 				diffCheck += 1
 			print("That is correct, well done!")
+			score += difficulty
 		else:
 			print("\nNot right, the correct answer is:", result)
 			if difficulty < 4:
@@ -189,6 +203,7 @@ def mixture():
 			
 		#Check if the user would like to continue
 		check = askExit()
+	return score
 				
 def mixResult(A,B,C):
 	if C == 1:
