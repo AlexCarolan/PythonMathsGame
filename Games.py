@@ -10,14 +10,7 @@ def addition():
 		B = random.randint(1, difficulty)
 		
 		#Output the question and verify the input is a valid int
-		inputCheck = False
-		while(inputCheck == False):
-			try:
-				print("\nWhat is", A, "+", B, "?")
-				inputValue = int(input())
-				inputCheck = True
-			except ValueError:
-				print("The provided input was not a number, please try agian!")
+		inputValue = takeInput(A,B,1)
 			
 		#Verify that the input is the correct answer
 		if inputValue == (A + B):
@@ -38,14 +31,8 @@ def addition():
 			difficulty += 1
 			diffCheck = 0
 		
-		#Check if the user would like to continue - Loop back if yes - exit if no -
-		while(True):
-			userCheck = input("Press Y to try another sum or N to stop.\n")
-			if userCheck in ('Y', 'y'):
-				break
-			elif userCheck in ('N', 'n'):
-				check = False
-				break
+		#Check if the user would like to continue
+		check = askExit()
 						
 def subtraction():
 	check = True
@@ -62,14 +49,7 @@ def subtraction():
 			B = random.randint(1, difficulty)
 		
 		#Output the question and verify the answer is a valid int
-		inputCheck = False
-		while(inputCheck == False):
-			try:
-				print("\nWhat is", A, "-", B, "?")
-				inputValue = int(input())
-				inputCheck = True
-			except ValueError:
-				print("The provided input was not a number, please try agian!")
+		inputValue = takeInput(A,B,2)
 			
 		#Verify that the input is the correct answer
 		if inputValue == (A - B):
@@ -90,14 +70,8 @@ def subtraction():
 			difficulty += 1
 			diffCheck = 0
 		
-		#Check if the user would like to continue - Loop back if yes - exit if no -	
-		while(True):
-			userCheck = input("Press Y to try another sum or N to stop.\n")
-			if userCheck in ('Y', 'y'):
-				break
-			elif userCheck in ('N', 'n'):
-				check = False
-				break
+		#Check if the user would like to continue
+		check = askExit()
 				
 def multiplication():
 	check = True
@@ -109,14 +83,7 @@ def multiplication():
 		B = random.randint(1, difficulty)
 		
 		#Output the question and verify the answer is a valid int
-		inputCheck = False
-		while(inputCheck == False):
-			try:
-				print("\nWhat is", A, "x", B, "?")
-				inputValue = int(input())
-				inputCheck = True
-			except ValueError:
-				print("The provided input was not a number, please try agian!")
+		inputValue = takeInput(A,B,3)
 			
 		#Verify that the input is the correct answer
 		if inputValue == (A * B):
@@ -137,14 +104,8 @@ def multiplication():
 			difficulty += 1
 			diffCheck = 0
 			
-		#Check if the user would like to continue - Loop back if yes - exit if no -
-		while(True):
-			userCheck = input("Press Y to try another sum or N to stop.\n")
-			if userCheck in ('Y', 'y'):
-				break
-			elif userCheck in ('N', 'n'):
-				check = False
-				break
+		#Check if the user would like to continue
+		check = askExit()
 				
 def division():
 	check = True
@@ -161,14 +122,7 @@ def division():
 			B = random.randint(1, difficulty)
 		
 		#Output the question and verify the answer is a valid int
-		inputCheck = False
-		while(inputCheck == False):
-			try:
-				print("\nWhat is", A, "/", B, "?")
-				inputValue = int(input())
-				inputCheck = True
-			except ValueError:
-				print("The provided input was not a number, please try agian!")
+		inputValue = takeInput(A,B,4)
 			
 		#Verify that the input is the correct answer
 		if inputValue == (A/B):
@@ -189,14 +143,8 @@ def division():
 			difficulty += 1
 			diffCheck = 0
 		
-		#Check if the user would like to continue - Loop back if yes - exit if no -	
-		while(True):
-			userCheck = input("Press Y to try another sum or N to stop.\n")
-			if userCheck in ('Y', 'y'):
-				break
-			elif userCheck in ('N', 'n'):
-				check = False
-				break
+		#Check if the user would like to continue
+		check = askExit()
 				
 def mixture():
 	check = True
@@ -209,21 +157,16 @@ def mixture():
 		B = random.randint(1, difficulty)
 		C = random.randint(1, 4)
 		
+		#Ensure the result is a positive int
 		while((C == 2 and A - B < 0) or (C == 4 and A % B > 0)):
 			A = random.randint(1, difficulty)
 			B = random.randint(1, difficulty)
 			
+		#Calculate the result based on the type of calculation
 		result = mixResult(A,B,C)
 		
 		#Output the question and verify the answer is a valid int
-		inputCheck = False
-		while(inputCheck == False):
-			try:
-				print("\nWhat is", A, map[C], B, "?")
-				inputValue = int(input())
-				inputCheck = True
-			except ValueError:
-				print("The provided input was not a number, please try agian!")
+		inputValue = takeInput(A,B,C)
 			
 		#Verify that the input is the correct answer
 		if inputValue == (result):
@@ -244,18 +187,10 @@ def mixture():
 			difficulty += 1
 			diffCheck = 0
 			
-		#Check if the user would like to continue - Loop back if yes - exit if no -
-		while(True):
-			userCheck = input("Press Y to try another sum or N to stop.\n")
-			if userCheck in ('Y', 'y'):
-				break
-			elif userCheck in ('N', 'n'):
-				check = False
-				break
+		#Check if the user would like to continue
+		check = askExit()
 				
 def mixResult(A,B,C):
-	
-	#Calculate the result based on the type of calculation
 	if C == 1:
 		return A + B
 	elif C == 2:
@@ -264,3 +199,21 @@ def mixResult(A,B,C):
 		return A * B
 	elif C == 4:
 		return A / B
+
+def askExit():
+	while(True):
+		userCheck = input("Press Y to try another sum or N to stop.\n")
+		if userCheck in ('Y', 'y'):
+			return True
+		elif userCheck in ('N', 'n'):
+			return False
+			
+def takeInput(A,B,C):
+	map = {1 : "+", 2 : "-", 3 : "x", 4 : "/"}
+	while(True):
+		try:
+			print("\nWhat is", A, map[C], B, "?")
+			inputValue = int(input())
+			return inputValue
+		except ValueError:
+			print("The provided input was not a number, please try agian!")
