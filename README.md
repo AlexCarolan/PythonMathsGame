@@ -1,2 +1,2 @@
 # PythonMathsGame
-A game for children used to teach basic maths
+A game for children, used to teach basic maths
