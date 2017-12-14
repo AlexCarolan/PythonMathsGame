@@ -1,4 +1,4 @@
-from Games import addition, subtraction, multiplication, division, mixture
+from Games import game
 
 #Take and store the inital user selection input
 inputNumber = input("Select one of the following options:\n(0) Scores (1) Addition (2) Subtraction (3) Multiplication (4) Division (5) Random sums (6) Quit\n")
@@ -17,27 +17,27 @@ while (inputNumber != '6'):
 		print("SCORES\nAddition:\t", addScore, "\nSubtraction:\t", subScore, "\nMultiplication:\t", mulScore, "\nDivision:\t", divScore, "\nRandom Sums:\t", mixScore, "\n")
 	#ADDITION
 	elif inputNumber == '1':
-		result = addition()
+		result = game(1)
 		score += result
 		addScore += result
 	#SUBTRACTION
 	elif inputNumber == '2':
-		result = subtraction()
+		result = game(2)
 		score += result
 		subScore += result
 	#MULTIPLICATION
 	elif inputNumber == '3':
-		result = multiplication()
+		result = game(3)
 		score += result
 		mulScore += result
 	#DIVISION
 	elif inputNumber == '4':
-		result = division()
+		result = game(4)
 		score += result
 		divScore += result
 	#MIXTURE
 	elif inputNumber == '5':
-		result = mixture()
+		result = game(5)
 		score += result
 		mixScore += result
 	#INVALID INPUT
